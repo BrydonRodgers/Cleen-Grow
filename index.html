@@ -51,47 +51,45 @@
   .mobile-menu.open{display:flex;}
   .mobile-menu a{color:var(--slate);text-decoration:none;font-size:1rem;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(10,110,138,0.08);}
 
-  /* ── HERO (LIGHT) ── */
-  .hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;padding-top:68px;background:linear-gradient(135deg,var(--ocean-light) 0%,var(--sand) 55%,var(--lime-light) 100%);}
+  /* ── HERO ── */
+  .hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;padding-top:68px;}
 
-  /* radial glows */
-  .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:420px;height:420px;background:radial-gradient(circle,rgba(140,198,63,0.18) 0%,transparent 70%);pointer-events:none;}
-  .hero::after{content:'';position:absolute;bottom:-40px;left:30px;width:320px;height:320px;background:radial-gradient(circle,rgba(10,110,138,0.1) 0%,transparent 70%);pointer-events:none;}
-
-  /* dot texture */
-  .hero-texture{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%230a6e8a' fill-opacity='0.05'/%3E%3C/svg%3E");z-index:0;}
-
-  /* Video slideshow */
-  .hero-media{position:absolute;right:0;top:0;bottom:0;width:52%;z-index:1;}
+  /* Full-screen background slideshow */
+  .hero-media{position:absolute;inset:0;z-index:0;}
   .hero-media-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out;}
   .hero-media-slide.active{opacity:1;}
   .hero-media-slide video{width:100%;height:100%;object-fit:cover;display:block;}
   .hero-media-slide img{width:100%;height:100%;object-fit:cover;display:block;}
-  .hero-media-overlay{position:absolute;inset:0;background:linear-gradient(90deg,var(--sand) 0%,rgba(253,246,236,0.6) 30%,rgba(253,246,236,0) 60%);}
+
+  /* Overlay — dark enough for text, light enough to see media */
+  .hero-media-overlay{position:absolute;inset:0;background:linear-gradient(110deg,rgba(10,50,70,0.55) 0%,rgba(10,50,70,0.35) 60%,rgba(10,50,70,0.2) 100%);}
+
+  /* dot texture on top of overlay */
+  .hero-texture{position:absolute;inset:0;z-index:1;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%230a6e8a' fill-opacity='0.04'/%3E%3C/svg%3E");}
 
   /* slide dots */
   .hero-dots{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:8px;}
-  .hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(10,110,138,0.25);border:none;cursor:pointer;padding:0;transition:all 0.3s ease;}
+  .hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(10,110,138,0.3);border:none;cursor:pointer;padding:0;transition:all 0.3s ease;}
   .hero-dot.active{background:var(--lime);width:24px;border-radius:4px;}
 
   .hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2;width:100%;}
-  .hero-content{max-width:540px;}
-  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.8);border:1px solid rgba(10,110,138,0.2);border-radius:50px;padding:6px 16px;margin-bottom:28px;color:var(--ocean);font-size:0.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;backdrop-filter:blur(4px);}
+  .hero-content{max-width:560px;}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:50px;padding:6px 16px;margin-bottom:28px;color:#fff;font-size:0.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;backdrop-filter:blur(4px);}
   .hero-badge::before{content:'';display:block;width:8px;height:8px;background:var(--lime);border-radius:50%;animation:pulse 2s infinite;}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.3);}}
-  .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,7vw,6.5rem);line-height:0.92;color:var(--slate);letter-spacing:2px;margin-bottom:8px;}
-  .hero h1 .accent{color:var(--lime-dark);display:block;}
-  .hero-tagline{font-size:clamp(0.95rem,2vw,1.15rem);color:var(--text-muted);max-width:460px;margin:20px 0 36px;font-weight:400;line-height:1.7;}
-  .hero-tagline strong{color:var(--ocean);font-weight:600;}
+  .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,7vw,6.5rem);line-height:0.92;color:#fff;letter-spacing:2px;margin-bottom:8px;}
+  .hero h1 .accent{color:var(--lime);display:block;}
+  .hero-tagline{font-size:clamp(0.95rem,2vw,1.15rem);color:rgba(255,255,255,0.82);max-width:460px;margin:20px 0 36px;font-weight:400;line-height:1.7;}
+  .hero-tagline strong{color:#fff;font-weight:600;}
   .hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:52px;}
-  .btn-wa{display:inline-flex;align-items:center;gap:10px;background:var(--ocean);color:#fff;font-weight:700;font-size:1rem;padding:14px 28px;border-radius:10px;text-decoration:none;transition:var(--transition);box-shadow:0 4px 24px rgba(10,110,138,0.25);}
-  .btn-wa:hover{background:var(--ocean-dark);transform:translateY(-2px);box-shadow:0 8px 32px rgba(10,110,138,0.35);}
-  .btn-call{display:inline-flex;align-items:center;gap:10px;background:var(--white);color:var(--slate);font-weight:600;font-size:1rem;padding:14px 28px;border-radius:10px;text-decoration:none;border:1.5px solid var(--border);transition:var(--transition);}
-  .btn-call:hover{background:var(--ocean-light);border-color:var(--ocean);color:var(--ocean);transform:translateY(-2px);}
+  .btn-wa{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:var(--slate);font-weight:700;font-size:1rem;padding:14px 28px;border-radius:10px;text-decoration:none;transition:var(--transition);box-shadow:0 4px 24px rgba(140,198,63,0.3);}
+  .btn-wa:hover{background:var(--lime-dark);transform:translateY(-2px);}
+  .btn-call{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.15);color:#fff;font-weight:600;font-size:1rem;padding:14px 28px;border-radius:10px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.35);transition:var(--transition);}
+  .btn-call:hover{background:rgba(255,255,255,0.25);transform:translateY(-2px);}
   .hero-stats{display:flex;gap:36px;flex-wrap:wrap;}
   .stat{text-align:left;}
-  .stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--ocean);letter-spacing:1px;line-height:1;}
-  .stat-label{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+  .stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--lime);letter-spacing:1px;line-height:1;}
+  .stat-label{font-size:0.75rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
 
   /* ── TRUST BAR ── */
   .trust-bar{background:var(--slate);padding:16px 24px;}
@@ -247,7 +245,6 @@
 
   /* ── RESPONSIVE ── */
   @media(max-width:960px){
-    .hero-media{display:none;}
     .quote-wrap{grid-template-columns:1fr;gap:32px;padding:36px 28px;}
     .footer-grid{grid-template-columns:1fr 1fr;}
     .footer-brand{grid-column:1/-1;}
@@ -710,7 +707,7 @@
       <h4>Contact</h4>
       <a href="tel:0764371915">076 437 1915</a>
       <a href="https://wa.me/27636691391" target="_blank">063 669 1391 (WhatsApp)</a>
-      <a href="mailto:info@cleengrow.co.za">info@cleengrow.co.za</a>
+      <a href="/cdn-cgi/l/email-protection#2841464e47684b444d4d464f5a475f064b47065249"><span class="__cf_email__" data-cfemail="9af3f4fcf5daf9f6fffff4fde8f5edb4f9f5b4e0fb">[email&#160;protected]</span></a>
       <p style="margin-top:8px;line-height:1.5;">Saldanha · Vredenburg<br/>Vredendal</p>
     </div>
   </div>
@@ -725,7 +722,7 @@
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.88l6.207-1.455A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.657-.502-5.179-1.378l-.371-.22-3.685.864.93-3.595-.242-.38A9.95 9.95 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
 </a>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── Mobile menu ── */
 function toggleMenu(){
   document.getElementById('mobileMenu').classList.toggle('open');
@@ -757,11 +754,22 @@ function scheduleNext(){
   slideshowTimer = setTimeout(nextSlide, vid ? 6000 : 5000);
 }
 
+function primeAllVideos(){
+  document.querySelectorAll('.hero-media-slide video').forEach(v=>{
+    v.muted=true; v.playsInline=true; v.load(); v.play().catch(()=>{});
+  });
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
-  const v = document.querySelector('#slide-0 video');
-  if(v) v.play().catch(()=>{});
+  primeAllVideos();
   scheduleNext();
 });
+
+// Mobile browsers need a user gesture — retry on first touch
+document.addEventListener('touchstart',function tryPlay(){
+  primeAllVideos();
+  document.removeEventListener('touchstart',tryPlay);
+},{once:true});
 
 /* ── FAQ accordion ── */
 function toggleFaq(el){
@@ -787,13 +795,4 @@ function sendQuoteWA(){
   let msg = `Hi CLEENGROW CO! I'd like to request a quote.\n\n`;
   msg += `👤 Name: ${name}\n`;
   msg += `📞 Phone: ${phone}\n`;
-  msg += `🧹 Service: ${service}\n`;
-  msg += `📍 Town: ${town}\n`;
-  if(note) msg += `📝 Notes: ${note}\n`;
-
-  const url = 'https://wa.me/27636691391?text=' + encodeURIComponent(msg);
-  window.open(url, '_blank');
-}
-</script>
-</body>
-</html>
+  ms
