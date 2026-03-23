@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CLEENGROW CO (PTY) LTD – Cleaning & Transport Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ocean: #0a6e8a;
+    --ocean-dark: #074f64;
+    --ocean-light: #12a0c5;
+    --sand: #f5e6c8;
+    --sand-light: #fdf6ec;
+    --lime: #8cc63f;
+    --lime-dark: #6fa32e;
+    --slate: #1a2a35;
+    --slate-mid: #2c3e4a;
+    --white: #ffffff;
+    --text-muted: #6b8291;
+    --radius: 12px;
+    --shadow: 0 8px 40px rgba(10,110,138,0.13);
+    --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--slate);overflow-x:hidden;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,78,100,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .nav-logo img{height:44px;width:auto;}
+  .nav-logo-text{display:flex;flex-direction:column;line-height:1;}
+  .nav-logo-text span:first-child{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:2px;color:var(--white);}
+  .nav-logo-text span:last-child{font-size:0.62rem;color:var(--lime);letter-spacing:1.5px;text-transform:uppercase;}
+  .nav-links{display:flex;align-items:center;gap:6px;}
+  .nav-links a{color:rgba(255,255,255,0.82);text-decoration:none;font-size:0.88rem;font-weight:500;padding:6px 12px;border-radius:6px;transition:var(--transition);}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.1);}
+  .nav-links a.active{color:var(--lime);}
+  .nav-cta{background:var(--lime);color:var(--slate)!important;font-weight:700!important;padding:8px 18px!important;border-radius:8px!important;}
+  .nav-cta:hover{background:var(--lime-dark)!important;color:var(--white)!important;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+  .hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:var(--transition);}
+  .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--ocean-dark);z-index:999;padding:16px 24px 24px;flex-direction:column;gap:4px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{color:rgba(255,255,255,0.9);text-decoration:none;font-size:1rem;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+
+  /* HERO */
+  .hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;padding-top:68px;}
+
+  /* Video slideshow background */
+  .hero-media{position:absolute;inset:0;z-index:0;}
+  .hero-media-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out;}
+  .hero-media-slide.active{opacity:1;}
+  .hero-media-slide video{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero-media-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+  /* Dark gradient overlay over all media */
+  .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(105deg,rgba(7,35,44,0.82) 0%,rgba(10,78,100,0.65) 50%,rgba(10,110,138,0.45) 100%);}
+  /* Subtle dot texture on top */
+  .hero-overlay::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+
+  /* Slide indicator dots */
+  .hero-dots{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:8px;}
+  .hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.35);border:none;cursor:pointer;padding:0;transition:all 0.3s ease;}
+  .hero-dot.active{background:var(--lime);width:24px;border-radius:4px;}
+
+  .hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2;}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(140,198,63,0.3);border-radius:50px;padding:6px 16px;margin-bottom:28px;color:var(--lime);font-size:0.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+  .hero-badge::before{content:'';display:block;width:8px;height:8px;background:var(--lime);border-radius:50%;animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.3);}}
+  .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,7rem);line-height:0.9;color:#fff;letter-spacing:2px;margin-bottom:8px;}
+  .hero h1 .accent{color:var(--lime);display:block;}
+  .hero-tagline{font-size:clamp(1rem,2.5vw,1.35rem);color:rgba(255,255,255,0.75);max-width:520px;margin:20px 0 36px;font-weight:300;line-height:1.6;}
+  .hero-tagline strong{color:#fff;font-weight:600;}
+  .hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:52px;}
+  .btn-wa{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:var(--slate);font-weight:700;font-size:1rem;padding:14px 28px;border-radius:10px;text-decoration:none;transition:var(--transition);box-shadow:0 4px 24px rgba(140,198,63,0.3);}
+  .btn-wa:hover{background:var(--lime-dark);transform:translateY(-2px);box-shadow:0 8px 32px rgba(140,198,63,0.4);}
+  .btn-call{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.12);color:#fff;font-weight:600;font-size:1rem;padding:14px 28px;border-radius:10px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:var(--transition);}
+  .btn-call:hover{background:rgba(255,255,255,0.2);transform:translateY(-2px);}
+  .hero-stats{display:flex;gap:40px;flex-wrap:wrap;}
+  .stat{text-align:left;}
+  .stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--lime);letter-spacing:1px;line-height:1;}
+  .stat-label{font-size:0.78rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+
+  /* WAVE */
+  .wave-divider{display:block;width:100%;line-height:0;}
+  .wave-divider svg{display:block;width:100%;}
+
+  /* SECTION BASE */
+  section{padding:90px 24px;}
+  .container{max-width:1200px;margin:0 auto;}
+  .section-label{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--lime-dark);margin-bottom:12px;}
+  .section-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,2.9rem);color:var(--slate);line-height:1.15;margin-bottom:16px;}
+  .section-subtitle{font-size:1.05rem;color:var(--text-muted);max-width:560px;line-height:1.7;}
+
+  /* SERVICES PREVIEW */
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:52px;}
+  .service-card{background:var(--white);border:1px solid rgba(10,110,138,0.1);border-radius:var(--radius);transition:var(--transition);position:relative;overflow:hidden;}
+  .service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .service-card-media{position:relative;height:200px;overflow:hidden;}
+  .service-card-media img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+  .service-card:hover .service-card-media img{transform:scale(1.05);}
+  .service-card-media-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,78,100,0.15) 0%,rgba(10,78,100,0.55) 100%);}
+  .service-card-media .service-icon-on-img{position:absolute;bottom:14px;left:16px;width:44px;height:44px;background:var(--lime);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+  .service-card-body{padding:24px 28px 28px;}
+  .service-card h3{font-family:'DM Serif Display',serif;font-size:1.35rem;margin-bottom:10px;color:var(--slate);}
+  .service-card p{font-size:0.92rem;color:var(--text-muted);line-height:1.65;}
+  .service-card .card-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:0.88rem;font-weight:600;color:var(--ocean);text-decoration:none;transition:var(--transition);}
+  .service-card .card-link:hover{color:var(--ocean-light);gap:10px;}
+
+  /* PACKAGES */
+  .packages-section{background:linear-gradient(180deg,#f0f8fb 0%,var(--sand-light) 100%);}
+  .packages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:52px;}
+  .pkg-card{background:#fff;border-radius:16px;padding:36px 32px;border:2px solid transparent;transition:var(--transition);position:relative;}
+  .pkg-card.featured{border-color:var(--ocean);box-shadow:0 12px 48px rgba(10,110,138,0.15);}
+  .pkg-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--ocean);color:#fff;font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 16px;border-radius:50px;white-space:nowrap;}
+  .pkg-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:1px;color:var(--slate);margin-bottom:6px;}
+  .pkg-price{font-size:2.5rem;font-weight:700;color:var(--ocean);line-height:1;}
+  .pkg-price span{font-size:1rem;font-weight:400;color:var(--text-muted);}
+  .pkg-features{list-style:none;margin:24px 0 28px;display:flex;flex-direction:column;gap:10px;}
+  .pkg-features li{display:flex;align-items:flex-start;gap:10px;font-size:0.9rem;color:var(--slate-mid);}
+  .pkg-features li::before{content:'✓';color:var(--lime-dark);font-weight:700;flex-shrink:0;margin-top:1px;}
+  .btn-pkg{display:block;text-align:center;background:var(--ocean);color:#fff;font-weight:700;padding:13px;border-radius:8px;text-decoration:none;transition:var(--transition);}
+  .btn-pkg:hover{background:var(--ocean-dark);transform:translateY(-1px);}
+  .pkg-card.featured .btn-pkg{background:var(--lime);color:var(--slate);}
+  .pkg-card.featured .btn-pkg:hover{background:var(--lime-dark);}
+
+  /* AREAS */
+  .areas-section{background:var(--slate);}
+  .areas-section .section-title{color:#fff;}
+  .areas-section .section-subtitle{color:rgba(255,255,255,0.6);}
+  .areas-section .section-label{color:var(--lime);}
+  .areas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:48px;}
+  .area-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px 24px;text-align:center;transition:var(--transition);}
+  .area-card:hover{background:rgba(255,255,255,0.1);transform:translateY(-3px);}
+  .area-icon{font-size:2rem;margin-bottom:12px;}
+  .area-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#fff;letter-spacing:1px;margin-bottom:6px;}
+  .area-desc{font-size:0.85rem;color:rgba(255,255,255,0.5);}
+
+  /* CTA STRIP */
+  .cta-strip{background:linear-gradient(135deg,var(--lime-dark),var(--lime));padding:60px 24px;}
+  .cta-strip-inner{max-width:800px;margin:0 auto;text-align:center;}
+  .cta-strip h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:2px;color:var(--slate);margin-bottom:12px;}
+  .cta-strip p{font-size:1.05rem;color:rgba(26,42,53,0.75);margin-bottom:32px;}
+  .cta-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;}
+  .btn-wa-dark{display:inline-flex;align-items:center;gap:10px;background:var(--slate);color:#fff;font-weight:700;font-size:1rem;padding:14px 28px;border-radius:10px;text-decoration:none;transition:var(--transition);}
+  .btn-wa-dark:hover{background:var(--ocean-dark);transform:translateY(-2px);}
+  .btn-outline-dark{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--slate);font-weight:700;font-size:1rem;padding:14px 28px;border-radius:10px;text-decoration:none;border:2px solid var(--slate);transition:var(--transition);}
+  .btn-outline-dark:hover{background:var(--slate);color:#fff;transform:translateY(-2px);}
+
+  /* FOOTER */
+  footer{background:var(--slate);border-top:1px solid rgba(255,255,255,0.06);padding:60px 24px 32px;}
+  .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+  .footer-brand img{height:48px;margin-bottom:16px;}
+  .footer-brand p{font-size:0.88rem;color:rgba(255,255,255,0.5);line-height:1.7;max-width:280px;}
+  .footer-col h4{font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lime);margin-bottom:16px;}
+  .footer-col a,.footer-col p{display:block;font-size:0.88rem;color:rgba(255,255,255,0.55);text-decoration:none;line-height:1;margin-bottom:12px;transition:var(--transition);}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;gap:12px;}
+  .footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.35);}
+  .footer-reg{font-size:0.75rem;color:rgba(255,255,255,0.25);}
+
+  /* FLOAT BUTTONS */
+  .float-wa{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--lime);color:var(--slate);width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.2);transition:var(--transition);animation:float 3s ease-in-out infinite;}
+  .float-wa:hover{transform:scale(1.1);}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+  .float-wa svg{width:28px;height:28px;}
+
+  @media(max-width:900px){
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .footer-brand{grid-column:1/-1;}
+  }
+  @media(max-width:640px){
+    .nav-links{display:none;}
+    .hamburger{display:flex;}
+    .hero-stats{gap:24px;}
+    .footer-grid{grid-template-columns:1fr;}
+    section{padding:64px 20px;}
+    .footer-bottom{flex-direction:column;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="CLEENGROW CO Logo" onerror="this.style.display='none'"/>
+      <div class="nav-logo-text">
+        <span>CLEENGROW CO</span>
+        <span>PTY LTD</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a href="legal.html">Legal</a>
+      <a href="contact.html" class="nav-cta">Get a Quote</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="legal.html">Legal</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- Background media slideshow -->
+  <div class="hero-media">
+    <!-- Slide 1: Pressure wash video -->
+    <div class="hero-media-slide active" id="slide-0">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="presurewash.mp4" type="video/mp4"/>
+      </video>
+    </div>
+    <!-- Slide 2: Clean roof image -->
+    <div class="hero-media-slide" id="slide-1">
+      <img src="cleanroof.jpeg" alt="Roof cleaning service"/>
+    </div>
+    <!-- Slide 3: Pool side video -->
+    <div class="hero-media-slide" id="slide-2">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="cleanpoolside.mp4" type="video/mp4"/>
+      </video>
+    </div>
+    <!-- Slide 4: Shuttle / transport -->
+    <div class="hero-media-slide" id="slide-3">
+      <img src="shuttle.jpeg" alt="Transport and shuttle service"/>
+    </div>
+    <!-- Slide 5: Roof image -->
+    <div class="hero-media-slide" id="slide-4">
+      <img src="roof.jpeg" alt="Professional roof cleaning"/>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <!-- Slide indicator dots -->
+  <div class="hero-dots">
+    <button class="hero-dot active" onclick="goToSlide(0)"></button>
+    <button class="hero-dot" onclick="goToSlide(1)"></button>
+    <button class="hero-dot" onclick="goToSlide(2)"></button>
+    <button class="hero-dot" onclick="goToSlide(3)"></button>
+    <button class="hero-dot" onclick="goToSlide(4)"></button>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">🌊 Saldanha Bay's #1 Cleaning & Transport</div>
+    <h1>CLEAN<br/><span class="accent">GROW.</span><br/>MOVE.</h1>
+    <p class="hero-tagline">Professional cleaning and transport services across <strong>Saldanha, Vredenburg & Vredendal</strong>. Trusted, registered, and ready to serve.</p>
+    <div class="hero-btns">
+      <a class="btn-wa" href="https://wa.me/27636691391" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.88l6.207-1.455A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.657-.502-5.179-1.378l-.371-.22-3.685.864.93-3.595-.242-.38A9.95 9.95 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp Us
+      </a>
+      <a class="btn-call" href="tel:0764371915">
+        📞 076 437 1915
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Service Areas</div></div>
+      <div class="stat"><div class="stat-num">R650</div><div class="stat-label">Starting Price</div></div>
+      <div class="stat"><div class="stat-num">2024</div><div class="stat-label">CIPC Registered</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff"/></svg></div>
+
+<!-- SERVICES PREVIEW -->
+<section>
+  <div class="container">
+    <span class="section-label">What We Do</span>
+    <h2 class="section-title">Two core services,<br/>one trusted team</h2>
+    <p class="section-subtitle">From sparkling driveways to moving your household — CLEENGROW CO handles it all with care and professionalism.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-media">
+          <img src="cleanroof.jpeg" alt="Cleaning Services"/>
+          <div class="service-card-media-overlay"></div>
+          <div class="service-icon-on-img">🧹</div>
+        </div>
+        <div class="service-card-body">
+          <h3>Cleaning Services</h3>
+          <p>Driveways & paving, exterior walls, roof cleaning, patios, stoeps, and pool areas. We use professional-grade equipment for results that last.</p>
+          <a class="card-link" href="services.html">See all cleaning services →</a>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-media">
+          <img src="shuttle.jpeg" alt="Transport & Moving"/>
+          <div class="service-card-media-overlay"></div>
+          <div class="service-icon-on-img">🚛</div>
+        </div>
+        <div class="service-card-body">
+          <h3>Transport & Moving</h3>
+          <p>Furniture removal, bakkie transport, airport trips, hospital transfers. Reliable, safe, and timely across the West Coast region.</p>
+          <a class="card-link" href="services.html">See transport services →</a>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-media">
+          <img src="roof.jpeg" alt="Flexible Packages"/>
+          <div class="service-card-media-overlay"></div>
+          <div class="service-icon-on-img">📦</div>
+        </div>
+        <div class="service-card-body">
+          <h3>Flexible Packages</h3>
+          <p>Three affordable cleaning packages from R650. Choose Basic, Standard, or Premium — tailored to your home or business needs.</p>
+          <a class="card-link" href="pricing.html">View packages & pricing →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages-section">
+  <div class="container">
+    <span class="section-label">Pricing</span>
+    <h2 class="section-title">Transparent pricing,<br/>no surprises</h2>
+    <p class="section-subtitle">Simple, affordable packages for every need. Contact us for custom quotes on transport and larger jobs.</p>
+    <div class="packages-grid">
+      <div class="pkg-card">
+        <div class="pkg-name">Basic Clean</div>
+        <div class="pkg-price">R650 <span>/ service</span></div>
+        <ul class="pkg-features">
+          <li>Driveway or patio clean</li>
+          <li>Exterior rinse-down</li>
+          <li>Single area service</li>
+          <li>Standard equipment</li>
+        </ul>
+        <a class="btn-pkg" href="https://wa.me/27636691391?text=Hi%2C%20I%20want%20the%20Basic%20Clean%20package" target="_blank">Book Now</a>
+      </div>
+      <div class="pkg-card featured">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-name">Standard Clean</div>
+        <div class="pkg-price">R1200 <span>/ service</span></div>
+        <ul class="pkg-features">
+          <li>Driveway + walls</li>
+          <li>Patio & stoep clean</li>
+          <li>Roof spot cleaning</li>
+          <li>2–3 area coverage</li>
+          <li>Professional equipment</li>
+        </ul>
+        <a class="btn-pkg" href="https://wa.me/27636691391?text=Hi%2C%20I%20want%20the%20Standard%20Clean%20package" target="_blank">Book Now</a>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-name">Premium Clean</div>
+        <div class="pkg-price">R2200 <span>/ service</span></div>
+        <ul class="pkg-features">
+          <li>Full exterior clean</li>
+          <li>Roof, walls & driveway</li>
+          <li>Pool area & stoep</li>
+          <li>All areas covered</li>
+          <li>Priority scheduling</li>
+        </ul>
+        <a class="btn-pkg" href="https://wa.me/27636691391?text=Hi%2C%20I%20want%20the%20Premium%20Clean%20package" target="_blank">Book Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="areas-section">
+  <div class="container">
+    <span class="section-label">Coverage</span>
+    <h2 class="section-title">We serve the West Coast</h2>
+    <p class="section-subtitle">Proudly operating across three key towns on South Africa's stunning West Coast.</p>
+    <div class="areas-grid">
+      <div class="area-card">
+        <div class="area-icon">⚓</div>
+        <div class="area-name">Saldanha</div>
+        <div class="area-desc">Our home base — fast response guaranteed</div>
+      </div>
+      <div class="area-card">
+        <div class="area-icon">🏘️</div>
+        <div class="area-name">Vredenburg</div>
+        <div class="area-desc">Serving homes and businesses regularly</div>
+      </div>
+      <div class="area-card">
+        <div class="area-icon">🌿</div>
+        <div class="area-name">Vredendal</div>
+        <div class="area-desc">Extended service area — call to confirm</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="cta-strip-inner">
+    <h2>READY TO GET STARTED?</h2>
+    <p>WhatsApp or call us today — we respond fast and get the job done right.</p>
+    <div class="cta-btns">
+      <a class="btn-wa-dark" href="https://wa.me/27636691391" target="_blank">
+        💬 WhatsApp: 063 669 1391
+      </a>
+      <a class="btn-outline-dark" href="tel:0764371915">📞 Call: 076 437 1915</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo.png" alt="CLEENGROW CO" onerror="this.style.display='none'"/>
+      <p>CLEENGROW CO (PTY) LTD — professional cleaning and transport services across the West Coast. CIPC registered. Trusted by families and businesses.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a href="legal.html">Legal Info</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="services.html">Cleaning</a>
+      <a href="services.html">Transport & Moving</a>
+      <a href="pricing.html">Packages</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:0764371915">076 437 1915</a>
+      <a href="https://wa.me/27636691391" target="_blank">063 669 1391 (WhatsApp)</a>
+      <a href="/cdn-cgi/l/email-protection#b5dfc7dfc0dbdcdac7dfdadbd0c6f5d2d8d4dcd99bd6dad8"><span class="__cf_email__" data-cfemail="b4dec6dec1dadddbc6dedbdad1c7f4d3d9d5ddd89ad7dbd9">[email&#160;protected]</span></a>
+      <p style="margin-top:8px">Saldanha · Vredenburg · Vredendal</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024–2025 CLEENGROW CO (PTY) LTD. All rights reserved.</p>
+    <p class="footer-reg">Reg: 2024/597875/07 · CIPC Active · Director: Jonathan Ray Jones</p>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a class="float-wa" href="https://wa.me/27636691391" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.88l6.207-1.455A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.657-.502-5.179-1.378l-.371-.22-3.685.864.93-3.595-.242-.38A9.95 9.95 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Hero media slideshow
+const TOTAL_SLIDES = 5;
+const SLIDE_DURATION = 5000;
+let currentSlide = 0;
+let slideshowTimer = null;
+
+function goToSlide(index) {
+  document.getElementById('slide-' + currentSlide).classList.remove('active');
+  document.querySelectorAll('.hero-dot')[currentSlide].classList.remove('active');
+  currentSlide = index;
+  const newSlide = document.getElementById('slide-' + currentSlide);
+  newSlide.classList.add('active');
+  document.querySelectorAll('.hero-dot')[currentSlide].classList.add('active');
+  const vid = newSlide.querySelector('video');
+  if (vid) { vid.currentTime = 0; vid.play().catch(()=>{}); }
+  clearTimeout(slideshowTimer);
+  scheduleNext();
+}
+
+function nextSlide() {
+  goToSlide((currentSlide + 1) % TOTAL_SLIDES);
+}
+
+function scheduleNext() {
+  const slide = document.getElementById('slide-' + currentSlide);
+  const vid = slide.querySelector('video');
+  slideshowTimer = setTimeout(nextSlide, vid ? 6000 : SLIDE_DURATION);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const firstVid = document.querySelector('#slide-0 video');
+  if (firstVid) firstVid.play().catch(()=>{});
+  scheduleNext();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us – CLEENGROW CO (PTY) LTD</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+  :root{--ocean:#0a6e8a;--ocean-dark:#074f64;--ocean-light:#12a0c5;--sand:#f5e6c8;--sand-light:#fdf6ec;--lime:#8cc63f;--lime-dark:#6fa32e;--slate:#1a2a35;--slate-mid:#2c3e4a;--white:#ffffff;--text-muted:#6b8291;--radius:12px;--shadow:0 8px 40px rgba(10,110,138,0.13);--transition:0.3s cubic-bezier(0.4,0,0.2,1);}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--slate);overflow-x:hidden;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,78,100,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .nav-logo img{height:44px;width:auto;}
+  .nav-logo-text{display:flex;flex-direction:column;line-height:1;}
+  .nav-logo-text span:first-child{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:2px;color:#fff;}
+  .nav-logo-text span:last-child{font-size:0.62rem;color:var(--lime);letter-spacing:1.5px;text-transform:uppercase;}
+  .nav-links{display:flex;align-items:center;gap:6px;}
+  .nav-links a{color:rgba(255,255,255,0.82);text-decoration:none;font-size:0.88rem;font-weight:500;padding:6px 12px;border-radius:6px;transition:var(--transition);}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.1);}
+  .nav-links a.active{color:var(--lime);}
+  .nav-cta{background:var(--lime);color:var(--slate)!important;font-weight:700!important;padding:8px 18px!important;border-radius:8px!important;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+  .hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;}
+  .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--ocean-dark);z-index:999;padding:16px 24px 24px;flex-direction:column;gap:4px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{color:rgba(255,255,255,0.9);text-decoration:none;font-size:1rem;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+
+  .page-hero{background:linear-gradient(135deg,var(--slate) 0%,var(--ocean-dark) 60%,var(--ocean) 100%);padding:120px 24px 70px;position:relative;overflow:hidden;}
+  .page-hero::after{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(140,198,63,0.1),transparent 70%);}
+  .page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2;}
+  .breadcrumb{font-size:0.8rem;color:rgba(255,255,255,0.45);margin-bottom:16px;}
+  .breadcrumb a{color:var(--lime);text-decoration:none;}
+  .page-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5rem);color:#fff;letter-spacing:2px;line-height:1;}
+  .page-hero p{font-size:1.05rem;color:rgba(255,255,255,0.65);max-width:560px;margin-top:16px;line-height:1.7;}
+
+  section{padding:80px 24px;}
+  .container{max-width:1200px;margin:0 auto;}
+  .section-label{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--lime-dark);margin-bottom:12px;}
+  .section-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--slate);line-height:1.15;margin-bottom:16px;}
+  .section-subtitle{font-size:1.02rem;color:var(--text-muted);max-width:580px;line-height:1.7;}
+
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:16px;}
+  .about-text p{font-size:1rem;color:var(--slate-mid);line-height:1.8;margin-bottom:16px;}
+  .about-visual{background:linear-gradient(135deg,var(--ocean-dark),var(--ocean));border-radius:20px;padding:48px 36px;color:#fff;position:relative;overflow:hidden;}
+  .about-visual::before{content:'';position:absolute;right:-40px;bottom:-40px;width:200px;height:200px;border-radius:50%;background:rgba(140,198,63,0.15);}
+  .about-visual h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:1px;margin-bottom:8px;}
+  .about-visual p{font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.65;margin-bottom:24px;}
+  .director-badge{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:12px 16px;}
+  .director-avatar{width:48px;height:48px;background:var(--lime);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--slate);flex-shrink:0;}
+  .director-info span{display:block;font-weight:600;font-size:0.95rem;}
+  .director-info small{color:rgba(255,255,255,0.55);font-size:0.8rem;}
+
+  .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:48px;}
+  .value-card{background:var(--sand-light);border-radius:12px;padding:28px 24px;border-left:4px solid var(--ocean);}
+  .value-card h4{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--slate);margin-bottom:8px;}
+  .value-card p{font-size:0.88rem;color:var(--text-muted);line-height:1.65;}
+  .value-icon{font-size:1.6rem;margin-bottom:12px;}
+
+  .timeline{margin-top:48px;position:relative;padding-left:32px;}
+  .timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--ocean),var(--lime));}
+  .timeline-item{position:relative;margin-bottom:36px;}
+  .timeline-item::before{content:'';position:absolute;left:-26px;top:6px;width:12px;height:12px;background:var(--ocean);border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 3px var(--ocean-light);}
+  .timeline-date{font-size:0.78rem;font-weight:700;color:var(--ocean);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;}
+  .timeline-item h4{font-weight:600;font-size:1rem;color:var(--slate);margin-bottom:4px;}
+  .timeline-item p{font-size:0.88rem;color:var(--text-muted);line-height:1.6;}
+
+  .cta-strip{background:linear-gradient(135deg,var(--lime-dark),var(--lime));padding:60px 24px;text-align:center;}
+  .cta-strip h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3rem);letter-spacing:2px;color:var(--slate);margin-bottom:12px;}
+  .cta-strip p{font-size:1rem;color:rgba(26,42,53,0.75);margin-bottom:28px;}
+  .cta-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;}
+  .btn-wa-dark{display:inline-flex;align-items:center;gap:10px;background:var(--slate);color:#fff;font-weight:700;font-size:1rem;padding:14px 28px;border-radius:10px;text-decoration:none;transition:var(--transition);}
+  .btn-wa-dark:hover{background:var(--ocean-dark);}
+  .btn-outline-dark{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--slate);font-weight:700;font-size:1rem;padding:14px 28px;border-radius:10px;text-decoration:none;border:2px solid var(--slate);transition:var(--transition);}
+  .btn-outline-dark:hover{background:var(--slate);color:#fff;}
+
+  footer{background:var(--slate);padding:60px 24px 32px;}
+  .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+  .footer-brand img{height:44px;margin-bottom:14px;}
+  .footer-brand p{font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.7;max-width:260px;}
+  .footer-col h4{font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lime);margin-bottom:14px;}
+  .footer-col a,.footer-col p{display:block;font-size:0.86rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:10px;transition:var(--transition);}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .footer-bottom p{font-size:0.78rem;color:rgba(255,255,255,0.3);}
+  .float-wa{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--lime);color:var(--slate);width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.2);transition:var(--transition);}
+  .float-wa:hover{transform:scale(1.1);}
+  .float-wa svg{width:26px;height:26px;}
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}}
+  @media(max-width:640px){.nav-links{display:none;}.hamburger{display:flex;}.footer-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="CLEENGROW CO" onerror="this.style.display='none'"/>
+      <div class="nav-logo-text"><span>CLEENGROW CO</span><span>PTY LTD</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a href="legal.html">Legal</a>
+      <a href="contact.html" class="nav-cta">Get a Quote</a>
+    </div>
+    <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="legal.html">Legal</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> / About Us</div>
+    <h1>ABOUT<br/>CLEENGROW CO</h1>
+    <p>A proudly South African business built on hard work, integrity, and a passion for clean spaces and reliable transport.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">Born on the West Coast</h2>
+        <p>CLEENGROW CO (PTY) LTD was founded in 2024 with a simple mission: to provide the Saldanha Bay area with professional, reliable, and affordable cleaning and transport services.</p>
+        <p>Serving the communities of Saldanha, Vredenburg, and Vredendal, we have built our reputation on doing the job right — every time. Whether it's a pressure-washed driveway, a spotless exterior wall, or a furniture move handled with care, CLEENGROW delivers.</p>
+        <p>We are CIPC registered (2024/597875/07) and fully compliant, giving our clients the peace of mind that comes with working with a legitimate, professional business.</p>
+      </div>
+      <div class="about-visual">
+        <h3>Jonathan Ray Jones</h3>
+        <p>CEO & Director of CLEENGROW CO (PTY) LTD. Committed to delivering professional services with a personal touch across the West Coast.</p>
+        <div class="director-badge">
+          <div class="director-avatar">JJ</div>
+          <div class="director-info">
+            <span>Jonathan Ray Jones</span>
+            <small>CEO / Director</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--sand-light);padding:80px 24px;">
+  <div class="container">
+    <span class="section-label">Our Values</span>
+    <h2 class="section-title">What drives us</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h4>Integrity</h4>
+        <p>We do what we say. Honest pricing, honest work, and honest communication — always.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <h4>Reliability</h4>
+        <p>We show up on time, every time. Your schedule matters and we respect it.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">✨</div>
+        <h4>Quality</h4>
+        <p>We take pride in our results. Professional equipment, skilled hands, lasting results.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌊</div>
+        <h4>Community</h4>
+        <p>We are proud members of the West Coast community and invest in the people around us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="section-label">Our Journey</span>
+    <h2 class="section-title">Company milestones</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">2024 – Year Founded</div>
+        <h4>CLEENGROW CO (PTY) LTD Established</h4>
+        <p>Company registered with CIPC under registration number 2024/597875/07. Operations began in Saldanha Bay.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">August 2025</div>
+        <h4>COR39 Amendments Processed</h4>
+        <p>Company details updated and confirmed active with CIPC. COR39 amendments processed 26 August 2025.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Present</div>
+        <h4>Growing & Serving the West Coast</h4>
+        <p>Expanding service areas across Saldanha, Vredenburg, and Vredendal with a growing client base.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>LET'S WORK TOGETHER</h2>
+  <p>Ready to experience professional cleaning and transport services?</p>
+  <div class="cta-btns">
+    <a class="btn-wa-dark" href="https://wa.me/27636691391" target="_blank">💬 WhatsApp Us</a>
+    <a class="btn-outline-dark" href="tel:0764371915">📞 076 437 1915</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo.png" alt="CLEENGROW CO" onerror="this.style.display='none'"/>
+      <p>CIPC Registered · Reg: 2024/597875/07 · Director: Jonathan Ray Jones</p>
+    </div>
+    <div class="footer-col"><h4>Pages</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="legal.html">Legal</a></div>
+    <div class="footer-col"><h4>Services</h4><a href="services.html">Cleaning</a><a href="services.html">Transport</a><a href="pricing.html">Packages</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:0764371915">076 437 1915</a><a href="https://wa.me/27636691391" target="_blank">063 669 1391</a><a href="mailto:jrjuniorjones@gmail.com">Email Us</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2024–2025 CLEENGROW CO (PTY) LTD. All rights reserved.</p><p>Reg: 2024/597875/07</p></div>
+</footer>
+<a class="float-wa" href="https://wa.me/27636691391" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.528 5.855L.057 23.88l6.207-1.455A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.657-.502-5.179-1.378l-.371-.22-3.685.864.93-3.595-.242-.38A9.95 9.95 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+</body>
+</html>
