@@ -63,6 +63,8 @@
   .director-info span{display:block;font-weight:600;font-size:0.95rem;}
   .director-info small{color:rgba(255,255,255,0.55);font-size:0.8rem;}
 
+  .team-photo{width:100%;height:300px;object-fit:cover;border-radius:12px;margin-bottom:24px;}
+
   .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:48px;}
   .value-card{background:var(--sand-light);border-radius:12px;padding:28px 24px;border-left:4px solid var(--ocean);}
   .value-card h4{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--slate);margin-bottom:8px;}
@@ -113,17 +115,14 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html" class="active">About</a>
-      <a href="services.html">Services</a>
-      <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact</a>
-      <a href="legal.html">Legal</a>
       <a href="contact.html" class="nav-cta">Get a Quote</a>
     </div>
     <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')"><span></span><span></span><span></span></div>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="legal.html">Legal</a>
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a>
 </div>
 
 <div class="page-hero">
@@ -145,6 +144,7 @@
         <p>We are CIPC registered (2024/597875/07) and fully compliant, giving our clients the peace of mind that comes with working with a legitimate, professional business.</p>
       </div>
       <div class="about-visual">
+        <img src="team.jpeg" alt="Jonathan Ray Jones - CEO of CLEENGROW CO" class="team-photo"/>
         <h3>Jonathan Ray Jones</h3>
         <p>CEO & Director of CLEENGROW CO (PTY) LTD. Committed to delivering professional services with a personal touch across the West Coast.</p>
         <div class="director-badge">
@@ -227,8 +227,8 @@
       <img src="logo.png" alt="CLEENGROW CO" onerror="this.style.display='none'"/>
       <p>CIPC Registered · Reg: 2024/597875/07 · Director: Jonathan Ray Jones</p>
     </div>
-    <div class="footer-col"><h4>Pages</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="legal.html">Legal</a></div>
-    <div class="footer-col"><h4>Services</h4><a href="services.html">Cleaning</a><a href="services.html">Transport</a><a href="pricing.html">Packages</a></div>
+    <div class="footer-col"><h4>Pages</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Services</h4><a href="contact.html">Cleaning</a><a href="contact.html">Transport</a></div>
     <div class="footer-col"><h4>Contact</h4><a href="tel:0764371915">076 437 1915</a><a href="https://wa.me/27636691391" target="_blank" rel="noopener noreferrer">063 669 1391</a><a href="mailto:jrjuniorjones@gmail.com">Email Us</a></div>
   </div>
   <div class="footer-bottom"><p>© 2024–2025 CLEENGROW CO (PTY) LTD. All rights reserved.</p><p>Reg: 2024/597875/07</p></div>
