@@ -163,10 +163,6 @@
   .after-tag{background:var(--lime);color:var(--slate);}
   .ba-caption{font-size:0.85rem;color:var(--text-muted);text-align:center;}
 
-  /* placeholder when no image */
-  .ba-placeholder{height:160px;display:flex;align-items:center;justify-content:center;font-size:0.82rem;color:var(--text-muted);background:var(--ocean-light);font-weight:500;}
-  .ba-placeholder.after-ph{background:var(--lime-light);color:var(--lime-dark);}
-
   /* ── PACKAGES ── */
   .packages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:52px;}
   .pkg-card{background:var(--white);border-radius:16px;padding:36px 32px;border:1.5px solid var(--border);transition:var(--transition);position:relative;}
@@ -273,7 +269,6 @@
     .quote-wrap{padding:28px 20px;}
   }
 </style>
-<base target="_blank">
 </head>
 <body>
 
@@ -290,10 +285,7 @@
     <div class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact</a>
-      <a href="legal.html">Legal</a>
       <a href="contact.html" class="nav-cta">Get a Quote</a>
     </div>
     <div class="hamburger" onclick="toggleMenu()">
@@ -304,10 +296,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="pricing.html">Pricing</a>
   <a href="contact.html">Contact</a>
-  <a href="legal.html">Legal</a>
 </div>
 
 <!-- ══════════════════ HERO ══════════════════ -->
@@ -321,18 +310,16 @@
       </video>
     </div>
     <div class="hero-media-slide" id="slide-1">
-      <img src="cleanroof.jpeg" alt="Roof cleaning service"/>
+      <img src="equipment.jpeg" alt="Professional pressure washing equipment CLEENGROW CO"/>
     </div>
     <div class="hero-media-slide" id="slide-2">
-      <video autoplay muted loop playsinline preload="auto">
-        <source src="cleanpoolside.mp4" type="video/mp4"/>
-      </video>
+      <img src="drivebefore.jpeg" alt="Dirty driveway before cleaning service"/>
     </div>
     <div class="hero-media-slide" id="slide-3">
-      <img src="shuttle.jpeg" alt="Transport and shuttle service"/>
+      <img src="driveafter.jpeg" alt="Clean driveway after professional pressure washing"/>
     </div>
     <div class="hero-media-slide" id="slide-4">
-      <img src="roof.jpeg" alt="Professional roof cleaning"/>
+      <img src="team.jpeg" alt="CLEENGROW CO team professional cleaning services"/>
     </div>
     <div class="hero-media-overlay"></div>
   </div>
@@ -389,38 +376,38 @@
     <div class="services-grid">
       <div class="service-card">
         <div class="service-card-media">
-          <img src="cleanroof.jpeg" alt="Professional pressure washing and roof cleaning services Saldanha Bay"/>
+          <img src="equipment.jpeg" alt="Professional pressure washing equipment Saldanha Bay"/>
           <div class="service-card-media-overlay"></div>
           <div class="service-icon-on-img">🧹</div>
         </div>
         <div class="service-card-body">
           <h3>Cleaning Services</h3>
           <p>Driveways & paving, exterior walls, roof cleaning, patios, stoeps, and pool areas. We use professional-grade equipment for results that last.</p>
-          <a class="card-link" href="services.html">See all cleaning services →</a>
+          <a class="card-link" href="contact.html">Get a quote →</a>
         </div>
       </div>
       <div class="service-card">
         <div class="service-card-media">
-          <img src="shuttle.jpeg" alt="Reliable bakkie transport and furniture removal services West Coast"/>
+          <img src="team.jpeg" alt="Reliable bakkie transport and moving services West Coast"/>
           <div class="service-card-media-overlay"></div>
           <div class="service-icon-on-img">🚛</div>
         </div>
         <div class="service-card-body">
           <h3>Transport & Moving</h3>
           <p>Furniture removal, bakkie transport, airport trips, hospital transfers. Reliable, safe, and timely across the West Coast region.</p>
-          <a class="card-link" href="services.html">See transport services →</a>
+          <a class="card-link" href="contact.html">Get a quote →</a>
         </div>
       </div>
       <div class="service-card">
         <div class="service-card-media">
-          <img src="roof.jpeg" alt="Affordable cleaning packages Saldanha Vredenburg Vredendal"/>
+          <img src="driveafter.jpeg" alt="Professional cleaning results Saldanha Vredenburg Vredendal"/>
           <div class="service-card-media-overlay"></div>
           <div class="service-icon-on-img">📦</div>
         </div>
         <div class="service-card-body">
           <h3>Flexible Packages</h3>
           <p>Three affordable cleaning packages from R650. Choose Basic, Standard, or Premium — tailored to your home or business needs.</p>
-          <a class="card-link" href="pricing.html">View packages & pricing →</a>
+          <a class="card-link" href="contact.html">View packages →</a>
         </div>
       </div>
     </div>
@@ -472,7 +459,7 @@
       <div>
         <span class="section-label">Our Work <span class="new-pill">New</span></span>
         <h2 class="section-title">The CLEENGROW difference</h2>
-        <p class="section-subtitle">Real results from recent jobs across Saldanha Bay.</p>
+        <p class="section-subtitle">Real results from recent driveway cleaning jobs across Saldanha Bay.</p>
       </div>
       <a class="btn-wa" href="https://wa.me/27636691391" target="_blank" rel="noopener noreferrer" style="white-space:nowrap">💬 Book a Clean</a>
     </div>
@@ -480,35 +467,28 @@
       <div class="ba-pair">
         <div class="ba-images">
           <div class="ba-img">
-            <img src="roof.jpeg" alt="Dirty roof before cleaning"/>
+            <img src="drivebefore.jpeg" alt="Dirty driveway before pressure washing"/>
             <div class="ba-tag-overlay before-tag">Before</div>
           </div>
           <div class="ba-img after">
-            <img src="roofclean.jpeg" alt="Clean roof after service"/>
+            <img src="driveafter.jpeg" alt="Clean driveway after professional pressure washing"/>
             <div class="ba-tag-overlay after-tag">After ✓</div>
           </div>
         </div>
-        <p class="ba-caption">Roof cleaning — Saldanha client</p>
+        <p class="ba-caption">Driveway cleaning — Saldanha client</p>
       </div>
       <div class="ba-pair">
         <div class="ba-images">
           <div class="ba-img">
-            <img src="cleanroof.jpeg" alt="Before exterior clean"/>
+            <img src="drivebefore.jpeg" alt="Dirty paving before cleaning service"/>
             <div class="ba-tag-overlay before-tag">Before</div>
           </div>
           <div class="ba-img after">
-            <img src="roofclean.jpeg" alt="After exterior clean"/>
+            <img src="driveafter.jpeg" alt="Clean paving after pressure washing service"/>
             <div class="ba-tag-overlay after-tag">After ✓</div>
           </div>
         </div>
-        <p class="ba-caption">Exterior wall clean — Vredenburg</p>
-      </div>
-      <div class="ba-pair">
-        <div class="ba-images">
-          <div class="ba-placeholder">📷 Add your before photo</div>
-          <div class="ba-placeholder after-ph">✨ Add your after photo</div>
-        </div>
-        <p class="ba-caption">Driveway / patio — coming soon</p>
+        <p class="ba-caption">Paving restoration — Vredenburg</p>
       </div>
     </div>
   </div>
@@ -703,17 +683,13 @@
       <h4>Pages</h4>
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
-      <a href="services.html">Services</a>
-      <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact</a>
-      <a href="legal.html">Legal Info</a>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
-      <a href="services.html">Pressure Cleaning</a>
-      <a href="services.html">Roof Cleaning</a>
-      <a href="services.html">Transport & Moving</a>
-      <a href="pricing.html">View Packages</a>
+      <a href="contact.html">Pressure Cleaning</a>
+      <a href="contact.html">Roof Cleaning</a>
+      <a href="contact.html">Transport & Moving</a>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
